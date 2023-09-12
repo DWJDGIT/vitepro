@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-11 21:07:53
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-12 15:57:54
+ * @LastEditTime : 2023-09-13 00:17:39
  * @Description  :
  */
 import { fileURLToPath, URL } from 'node:url'
@@ -35,6 +35,13 @@ export default defineConfig(({ mode }) => {
       host: true,
       port: 9527,
       hmr: true,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3000',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+        },
+      },
     },
     optimizeDeps: {
       force: true,
