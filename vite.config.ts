@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-11 21:07:53
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-12 15:06:07
+ * @LastEditTime : 2023-09-12 15:57:54
  * @Description  :
  */
 import { fileURLToPath, URL } from 'node:url'
@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
     plugins: [vue(), vueJsx()],
     define: {
       'process.env': {
-        VUE_APP_ENV: mode,
+        VUE_APP_MODE: mode,
       },
     },
     resolve: {

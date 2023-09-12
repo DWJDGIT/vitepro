@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check build-only",
+    "dev": "cross-env VUE_APP_MODE=development vite --mode development",
+    "build:test": "cross-env VUE_APP_MODE=test vue-tsc --noEmit && cross-env VUE_APP_MODE=test run-p type-check build-only",
+    "build:pros": "cross-env VUE_APP_MODE=production vue-tsc --noEmit && cross-env VUE_APP_MODE=production run-p type-check build-only",
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
@@ -15,10 +16,6 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.0.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
@@ -26,6 +23,8 @@
   "devDependencies": {
     "@babel/core": "^7.22.17",
     "@babel/preset-env": "^7.22.15",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@rushstack/eslint-patch": "^1.3.2",
     "@tsconfig/node18": "^18.2.0",
     "@types/jsdom": "^21.1.1",
@@ -36,6 +35,9 @@
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/test-utils": "^2.4.1",
     "@vue/tsconfig": "^0.4.0",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "eslint": "^8.46.0",
     "eslint-plugin-vue": "^9.16.1",
     "husky": "^8.0.3",

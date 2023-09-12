@@ -5,6 +5,5 @@ import TheWelcome from '../components/TheWelcome.vue'
 <template>
   <main>
     <TheWelcome />
-    hello world
   </main>
 </template>
