@@ -1,10 +1,16 @@
+<!--
+ * @Author       : 'YDW'
+ * @Date         : 2023-09-11 21:07:53
+ * @LastEditors  : 'YDW' 2310861314@qq.com
+ * @LastEditTime : 2023-09-13 13:22:09
+ * @Description  : 
+-->
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -16,14 +22,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+// import { vue } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import { getUserInfo } from '@/api/user/user'
-onMounted(async () => {
-  const res = await getUserInfo()
-  console.log(res)
-})
+
+// import { getUserInfo } from '@/api/user/user'
+// onMounted(async () => {
+//   const res = await getUserInfo()
+//   console.log(res)
+// })
 </script>
 
 <style scoped>

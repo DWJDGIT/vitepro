@@ -27,9 +27,9 @@ interface RequestParam {
 
 /**
  * @description: create方法的设置
- * @param { string } baseUrl `baseURL`将被添加到`url`前面，除非`url`是绝对的。
+ * @param { string } baseUrl 将被添加到`url`前面，除非`url`是绝对的。
  * @param { number } timeout 请求超时
- * @param { boolean } withCredentials `withCredentials`指示是否跨站点访问控制请求
+ * @param { boolean } withCredentials 是否跨站点访问控制请求
  */
 interface BaseSettings {
   baseUrl: string
@@ -64,17 +64,25 @@ export default class Http {
       return this
     }
     this.baseUrl = _options.baseUrl
-    this.timeout = _options.timeout ? _options.timeout : 6000
-    this.withCredentials = _options.withCredentials ? _options.withCredentials : false
+    this.timeout = _options.timeout ?? 6000
+    this.withCredentials = _options.withCredentials ?? false
     return this
   }
+  /**
+   * @description 配置请求参数
+   * @param { RequestParam } _options 请求方法，请求头等参数
+   * @param { COMMON_TYPE } data 请求头数据
+   * @returns 成功或失败的响应
+   */
   initTask(_options: RequestParam, data?: COMMON_TYPE) {
     return new Promise((resolve, reject) => {
       // 2 配置 ajax 请求信息
       this.xhr.open(_options.method, _options.url, _options.async)
       // 如果当前的请求方式为 POST, 那么需要配置上对应的 请求头
-      if (/^(POST)$/i.test(_options.method!)) {
-        const headers = _options.headers ? _options.headers : 'application/json;charset=UTF-8'
+      if (/^(POST)$/i.test(_options.method!) && _options.headers) {
+        const headers =
+          _options.headers['content-type'] ??
+          (_options.headers['content-type'] = 'application/json;charset=UTF-8')
         this.xhr.setRequestHeader('content-type', headers['content-type'])
       }
       // 如果 authorization 内有值, 需要带上 authorization
