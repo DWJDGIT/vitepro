@@ -1,7 +1,8 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
-    "env.d.ts",
+    "*.d.ts",
+    "src/*",
     "src/**/*",
     "src/**/*.vue",
     "src/**/*.ts",
@@ -25,7 +26,7 @@
       "@/*": ["./src/*"]
     },
     "strict": true, // 启用所有严格类型检查选项
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "element-plus/global"],
     "resolveJsonModule": true, // 解析json模块
     "importHelpers": true, // 从 tslib 导入辅助工具函数
     "esModuleInterop": true, // 支持合成模块的默认导入

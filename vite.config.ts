@@ -1,18 +1,21 @@
-/*
- * @Author       : 'YDW'
- * @Date         : 2023-09-11 21:07:53
- * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-13 00:17:39
- * @Description  :
- */
 import { fileURLToPath, URL } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig, configDefaults } from 'vitest/config'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 /** @type { import('vite').UserConfig } */
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [vue(), vueJsx()],
+    plugins: [
+      vue(),
+      vueJsx(),
+      AutoImport({ resolvers: [ElementPlusResolver()] }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+    ],
     define: {
       'process.env': {
         VUE_APP_MODE: mode,

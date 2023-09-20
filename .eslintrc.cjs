@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-11 21:07:53
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-12 15:08:47
+ * @LastEditTime : 2023-09-20 20:32:04
  * @Description  :
  */
 
@@ -14,7 +14,6 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-essential',
     'plugin:vue/vue3-strongly-recommended',
-    'eslint:recommended',
     'plugin:prettier/recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting',
@@ -46,12 +45,12 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'error',
     // camelcase: ['error', { allow: ['rt_code', 'rt_msg', 'keep_classnames', 'drop_console'] }],
   },
-  overrides: [
-    {
-      files: ['src/components/**'],
-      rules: {
-        'vue/multi-word-component-names': 'error',
-      },
-    },
-  ],
+  // overrides: [
+  //   {
+  //     files: ['src/components/**'],
+  //     rules: {
+  //       'vue/multi-word-component-names': 'error',
+  //     },
+  //   },
+  // ],
 }
