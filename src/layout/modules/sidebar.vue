@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-12 16:10:14
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-21 01:00:45
+ * @LastEditTime : 2023-09-28 17:55:29
  * @Description  : 侧边栏组件
 -->
 <template>
@@ -79,7 +79,7 @@ import { throttle } from 'lodash'
 const router = useRouter()
 const route = useRoute()
 const isCollapse = ref(false)
-const routerList = router.options.routes
+const routerList = router.options.routes.filter((item) => item.children?.length)
 
 const setSidebarType = () => {
   if (window.innerWidth <= 768) {

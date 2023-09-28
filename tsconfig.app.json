@@ -2,36 +2,40 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
     "*.d.ts",
-    "src/*",
-    "src/**/*",
+    "src/**/*", //  src 下的所有文件都会经过 ts 的编译，目录层级不限
     "src/**/*.vue",
-    "src/**/*.ts",
+    "src/**/*.ts", // src 下以 .js 结尾的会经过 ts 的编译，并且在其对应的目录下面，目录层级不限
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "types/**/*.ts",
-    "types/**/*.d.ts"
+    "types/**/*.d.ts",
+    "types/*.d.ts"
   ],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
+    // "allowJs": false, // 是否允许编译 JS 文件
+    // "checkJs": false, // 是否对 JS 文件进行类型检查
     "composite": true,
     "baseUrl": "./", // 用于解析非相对模块名称的基础目录
-    "target": "ESNext", // 指定 ECMAScript 目标版本
+    "target": "ESNext", // 指定编译出来的 ECMAScript 目标版本
     "useDefineForClassFields": true, // [[Define]] 语义
-    "module": "ESNext", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    "module": "ESNext", // 指定模块的生成方式: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
     "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
     "noUnusedLocals": true, // 有未使用的变量时，抛出错误
     "noUnusedParameters": true, // 有未使用的参数时，抛出错误
+    // "outDir": ".", // 定义输出目录，即编译后的文件放置位置
     "paths": {
       // 模块名到基于 baseUrl 的路径映射的列表
       "@/*": ["./src/*"]
     },
     "strict": true, // 启用所有严格类型检查选项
+    // "sourceMap": false, // 生成 source map 文件，方便调试和定位代码位置
     "types": ["node", "vite/client", "element-plus/global"],
     "resolveJsonModule": true, // 解析json模块
     "importHelpers": true, // 从 tslib 导入辅助工具函数
     "esModuleInterop": true, // 支持合成模块的默认导入
-    "lib": ["ESNext", "DOM"], // 指定要包含在编译中的库文件
+    "lib": ["ESNext", "DOM"], // 表示编译器在编译过程中可以访问的库文件的列表
     "skipLibCheck": true, // 忽略声明文件的类型检查
-    "moduleResolution": "node"
+    "moduleResolution": "node" // 模块解析策略，指编译器在查找导入模块内容时所遵循的流程
   }
 }

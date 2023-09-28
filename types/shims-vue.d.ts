@@ -1,2 +1,3 @@
 declare module 'lodash'
-// declare module 'vue-router'
+declare module 'three'
+declare module 'three-orbit-controls'

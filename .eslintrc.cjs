@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-11 21:07:53
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-20 20:32:04
+ * @LastEditTime : 2023-09-21 13:38:46
  * @Description  :
  */
 
@@ -12,9 +12,11 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 module.exports = {
   root: true,
   extends: [
+    'eslint:recommended',
     'plugin:vue/vue3-essential',
-    'plugin:vue/vue3-strongly-recommended',
     'plugin:prettier/recommended',
+    'plugin:vue/vue3-strongly-recommended',
+    '@vue/typescript/recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier/skip-formatting',
   ],

@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-12 16:09:09
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-21 01:29:56
+ * @LastEditTime : 2023-09-21 13:28:28
  * @Description  : 
 -->
 <template>
@@ -15,9 +15,9 @@
 </template>
 
 <script setup lang="ts">
-import Header from './modules/Header.vue'
-import Main from './modules/Main.vue'
-import Sidebar from './modules/Sidebar.vue'
+import Header from './modules/header.vue'
+import Main from './modules/main.vue'
+import Sidebar from './modules/sidebar.vue'
 </script>
 
 <style lang="scss" scoped>

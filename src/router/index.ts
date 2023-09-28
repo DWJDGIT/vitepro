@@ -4,6 +4,12 @@ import Layout from '@/layout/index.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    name: 'login',
+    meta: { title: '登录' },
+    component: () => import('@/views/login/index.vue'),
+  },
+  {
+    path: '/home',
     redirect: '/home',
     component: Layout,
     children: [
@@ -13,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           title: '首页',
         },
-        component: () => import('@/views/Home/component/DataView.vue'),
+        component: () => import('@/views/Home/index.vue'),
       },
     ],
   },
@@ -35,12 +41,12 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/Other/Child/viewData.vue'),
       },
       {
-        path: '/Other/bigView',
+        path: '/other/bigView',
         meta: { title: '大屏管理' },
         children: [
           {
             name: 'EchartData',
-            path: '/Other/bigView/EchartData',
+            path: '/other/bigView/EchartData',
             meta: { title: '大屏大屏' },
             component: () => import('@/views/Other/Child/EchartData.vue'),
           },

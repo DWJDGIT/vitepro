@@ -2,7 +2,7 @@
  * @Author       : 'YDW'
  * @Date         : 2023-09-12 16:10:31
  * @LastEditors  : 'YDW' 2310861314@qq.com
- * @LastEditTime : 2023-09-21 02:25:13
+ * @LastEditTime : 2023-09-28 15:52:50
  * @Description  : 头部组件
 -->
 <template>
@@ -17,7 +17,10 @@
           </el-breadcrumb-item>
         </el-breadcrumb>
       </div>
-      <div>1231</div>
+      <div class="flex">
+        <div class="avatar mr-[20px]">头像</div>
+        <div class="cursor-pointer mr-[20px]" @click="logout">退出登录</div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,8 +35,6 @@ const arr = ref<RouteLocationMatched[]>([])
 // 获取面包屑数据
 const getBreadcrumbList = () => {
   arr.value = []
-  console.log(route.matched)
-
   route.matched.forEach((item: RouteLocationMatched) => {
     if (item.meta.title) arr.value.push(item)
   })
@@ -49,6 +50,10 @@ watch(route, () => {
 const handleLine = ({ redirect, path, children }: RouteLocationMatched) => {
   if (children.length) return
   redirect ? router.push(redirect as RouteLocationRaw) : router.push(path)
+}
+const logout = () => {
+  router.replace({ path: '/' })
+  localStorage.removeItem('token')
 }
 </script>
 
