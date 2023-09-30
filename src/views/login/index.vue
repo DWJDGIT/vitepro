@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page w-full h-full relative">
+  <div class="login-page w-full h-full relative overflow-hidden">
     <video id="video-bg" :src="bgVideo"></video>
     <div
       class="login-wrapper absolute w-[600px] my-[20px] m-[auto] left-0 top-[50%] bottom-0 right-0 bg-transparent"
@@ -32,7 +32,6 @@
           >
             登录
           </el-button>
-          <!-- <el-button class="login-btn w-[100px] flex-1" size="large" type="warning">注册</el-button> -->
           <div class="flex justify-between">
             <span class="cursor-pointer text-[#eee]">忘记密码</span>
             <span class="cursor-pointer text-[#eee]">注册</span>
@@ -69,6 +68,7 @@ const showPwd = () => {
 
 <style lang="scss" scoped>
 .login-page {
+  background-color: #f4f4f4;
   #video-bg {
     @apply w-full h-full;
     background-color: #f4f4f4;
